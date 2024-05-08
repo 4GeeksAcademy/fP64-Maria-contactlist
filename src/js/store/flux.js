@@ -1,17 +1,22 @@
+import contactOperationDispatcher from './contactOperationDispatcher';
+
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
 			demo: [
 				{
-					title: "FIRST",
+					title: "Este es el primer elemento",
 					background: "white",
 					initial: "white"
 				},
 				{
-					title: "SECOND",
+					title: "Este es el segundo elemento",
 					background: "white",
 					initial: "white"
 				}
+			],
+			contacts: [
+
 			]
 		},
 		actions: {
@@ -37,6 +42,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 				//reset the global store
 				setStore({ demo: demo });
+			},
+			updateContactList: async () => {
+				const {contacts} = await contactOperationDispatcher.get();
+				const store = getStore();
+				setStore({...store, contacts});
+
 			}
 		}
 	};
