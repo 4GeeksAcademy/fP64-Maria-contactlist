@@ -91,9 +91,9 @@ const CreateContactForm = () => {
                 <button type="submit" className="btn btn-primary">
                     Save
                 </button>
-                <Link to="/contacts">
+                <Link to="/">
                     <span className="ms-2">
-                        <i className="fa-solid fa-arrow-left"></i> Or go back to Contacts
+                        Volver
                     </span>
                 </Link>
             </form>

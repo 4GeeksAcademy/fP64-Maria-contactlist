@@ -65,7 +65,7 @@ const Layout = () => {
                         <Route path="/" element={<Home />} />
                         <Route path="/contact-list" element={<ContactList />} />
                         <Route path="/create-contact-form" element={<CreateContactForm />} />
-                        <Route path="*" element={<h1>Not found!</h1>} />
+                        <Route path="*" element={<h1>¡HAS HECHO CLICK!</h1>} />
                     </Routes>
                     <Footer />
                 </ScrollToTop>
