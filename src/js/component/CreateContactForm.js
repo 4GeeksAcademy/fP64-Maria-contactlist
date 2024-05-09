@@ -30,11 +30,11 @@ const CreateContactForm = () => {
 
     return (
         <div className="add-contact-form container text-center mt-5">
-            <h2>Add a New Contact</h2>
+            <h2>Añadir Nuevo Contacto</h2>
             <form onSubmit={handleFormSubmit}>
-                <div className="mb-3">
-                    <label htmlFor="fullName" className="form-label">
-                        Full Name
+                <div className="mb-3 mt-5">
+                <label htmlFor="fullName" className="form-label" style={{fontWeight: 'bold'}}>
+                        Nombre Completo
                     </label>
                     <input
                         type="text"
@@ -62,7 +62,7 @@ const CreateContactForm = () => {
                 </div>
                 <div className="mb-3">
                     <label htmlFor="phone" className="form-label">
-                        Phone
+                        Teléfono
                     </label>
                     <input
                         type="tel"
@@ -76,7 +76,7 @@ const CreateContactForm = () => {
                 </div>
                 <div className="mb-3">
                     <label htmlFor="address" className="form-label">
-                        Address
+                        Dirección
                     </label>
                     <textarea
                         className="form-control"
@@ -88,8 +88,8 @@ const CreateContactForm = () => {
                     ></textarea>
                 </div>
 
-                <button type="submit" className="btn btn-primary">
-                    Save
+                <button type="submit" className="btn btn-secondary">
+                    Guardar Contacto
                 </button>
                 <Link to="/">
                     <span className="ms-2">

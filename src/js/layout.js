@@ -29,27 +29,29 @@ const ContactList = () => {
     };
 
     return (
-        <>
-            <ul>
+        <div style={{ display: "flex", justifyContent: "center" }}>
+            <ul style={{ listStyle: "none", padding: 0 }}>
                 {store.contacts.map((contact) => (
-                    <li key={contact.id}>
+                    <li key={contact.id} style={{ border: "2px solid black", borderRadius: "5px", padding: "10px", margin: "10px", width: "300px" }}>
                         <div>
-                            <strong>Name:</strong> {contact.name}
+                            <strong style={{ fontSize: "18px" }}>Name:</strong> {contact.name}
                         </div>
                         <div>
-                            <strong>Phone:</strong> {contact.phone}
+                            <strong style={{ fontSize: "18px" }}>Phone:</strong> {contact.phone}
                         </div>
                         <div>
-                            <strong>Email:</strong> {contact.email}
+                            <strong style={{ fontSize: "18px" }}>Email:</strong> {contact.email}
                         </div>
                         <div>
-                            <strong>Address:</strong> {contact.address}
+                            <strong style={{ fontSize: "18px" }}>Address:</strong> {contact.address}
                         </div>
-                            <button onClick={() => handleDeleteContact(contact.id)}>Eliminar</button>
+                        <div style={{ display: "flex", justifyContent: "center" }}>
+                            <button className="btn btn-danger mt-2" onClick={() => handleDeleteContact(contact.id)}>Eliminar</button>
+                        </div>
                     </li>
                 ))}
             </ul>
-        </>
+        </div>
     );
 }
 
