@@ -1,4 +1,7 @@
 import contactOperationDispatcher from './contactOperationDispatcher';
+import createContactDispatcher from './createContactDispatcher';
+import updateContactDispatcher from './updateContactDispatcher';
+import deleteContactDispatcher from './deleteContactDispatcher';
 
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
@@ -47,9 +50,35 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const {contacts} = await contactOperationDispatcher.get();
 				const store = getStore();
 				setStore({...store, contacts});
-
+			},
+			addContact: async (contactData) => {
+                try {
+                    const newContact = await createContactDispatcher.post(contactData);
+                    const store = getStore();
+                    setStore({ ...store, contacts: [...store.contacts, newContact] });
+                    return newContact;
+                } catch (error) {
+                    console.error('Error al agregar el contacto:', error);
+                    throw error; 
+                }
+            },
+			updateContact: async (contactId, updatedData) => {
+				try {
+					await updateContactDispatcher.put(contactId, updatedData);
+				} catch (error) {
+					console.error('Error al actualizar el contacto:', error);
+					throw error; 
+				}
+			},
+			deleteContact: async (contactId) => {
+				try {
+					await deleteContactDispatcher.delete(contactId);
+				} catch (error) {
+					console.error('Error al eliminar el contacto:', error);
+					throw error; 
+				}
 			}
-		}
+	 }
 	};
 };
 
